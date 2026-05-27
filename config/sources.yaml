@@ -1,0 +1,76 @@
+# Wine Pair Content Intelligence — Source Configuration
+# Controls which data sources are active and how they are used.
+# Reliability labels: owned_verified, official_api, public_rss, directional_proxy, inferred
+
+gsc:
+  enabled: true
+  reliability: owned_verified
+  lookback_days: [7, 28, 91, 365]
+
+youtube:
+  enabled: true
+  reliability: official_api
+  max_results_per_query: 20
+  published_after_days: 90
+
+rss_feeds:
+  wine_industry:
+    - name: Decanter
+      url: https://www.decanter.com/feed/
+      reliability: public_rss
+    - name: Wine Enthusiast
+      url: https://www.winemag.com/feed/
+      reliability: public_rss
+    - name: Wine Business Monthly
+      url: https://www.winebusiness.com/rss/
+      reliability: public_rss
+    - name: Wine Industry Advisor
+      url: https://wineindustryadvisor.com/feed
+      reliability: public_rss
+    - name: The Drinks Business
+      url: https://www.thedrinksbusiness.com/feed/
+      reliability: public_rss
+    - name: Food & Wine
+      url: https://www.foodandwine.com/rss
+      reliability: public_rss
+    - name: Punch
+      url: https://punchdrink.com/feed/
+      reliability: public_rss
+  seo_aeo:
+    - name: Google Search Central Blog
+      url: https://developers.google.com/search/blog/rss.xml
+      reliability: official_api
+    - name: Search Engine Land
+      url: https://searchengineland.com/feed
+      reliability: public_rss
+    - name: Search Engine Roundtable
+      url: https://www.seroundtable.com/atom.xml
+      reliability: public_rss
+    - name: Ahrefs Blog
+      url: https://ahrefs.com/blog/rss/
+      reliability: public_rss
+
+website:
+  enabled: true
+  reliability: owned_verified
+  sitemap_url: "${SITEMAP_URL}"
+  wordpress_api_base: "${SITE_URL}/wp-json/wp/v2"
+
+buzzsprout:
+  enabled: false  # Phase 3 — requires API key
+  reliability: official_api
+
+reddit:
+  enabled: false  # Phase 4 — requires API credentials
+  reliability: directional_proxy
+  subreddits:
+    - r/wine
+    - r/Costco
+    - r/traderjoes
+    - r/aldi
+    - r/Cooking
+    - r/frugal
+
+google_trends:
+  enabled: false  # Phase 4 — requires alpha API access
+  reliability: directional_proxy

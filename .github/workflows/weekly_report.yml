@@ -1,0 +1,73 @@
+name: Weekly Intelligence Report
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM Pacific (17:00 UTC)
+    - cron: "0 17 * * 1"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Run for a specific date (YYYY-MM-DD, optional)"
+        required: false
+      dry_run:
+        description: "Dry run (collect data but skip report)"
+        required: false
+        default: "false"
+
+jobs:
+  run-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write service account credentials
+        run: |
+          echo '${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}' > config/service_account.json
+        # Note: store the full JSON content of your service account key
+        # in a GitHub secret named GSC_SERVICE_ACCOUNT_JSON
+
+      - name: Run weekly report
+        env:
+          GSC_SERVICE_ACCOUNT_KEY: config/service_account.json
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          SITEMAP_URL: ${{ secrets.SITEMAP_URL }}
+          DB_PATH: data/sqlite/intelligence.db
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.date }}" != "" ]; then
+            ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          python run_weekly_report.py $ARGS
+
+      - name: Remove service account credentials before commit
+        run: rm -f config/service_account.json
+
+      - name: Commit updated database and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/sqlite/intelligence.db
+          git add reports/
+          git diff --staged --quiet || git commit -m "chore: weekly intelligence report $(date -u +%Y-%m-%d)"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

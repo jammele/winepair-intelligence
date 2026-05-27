@@ -1,0 +1,233 @@
+# Wine Pair Content Intelligence — Topic Watchlist
+# This is the seed watchlist. The system will discover and propose additional topics
+# over time, but will not add them automatically without review.
+#
+# topic_type values: varietal, region, brand, retailer, format, question, trend
+# brand_tier values: direct (affordable episode target), adjacent (expensive but signals demand), watch_only
+
+formats:
+  - name: boxed wine
+    topic_type: format
+  - name: canned wine
+    topic_type: format
+  - name: orange wine
+    topic_type: format
+  - name: natural wine
+    topic_type: format
+  - name: sparkling wine
+    topic_type: format
+  - name: low alcohol wine
+    topic_type: format
+  - name: non-alcoholic wine
+    topic_type: format
+  - name: grocery store wine
+    topic_type: format
+  - name: private label wine
+    topic_type: format
+  - name: celebrity wine
+    topic_type: format
+  - name: wine advent calendar
+    topic_type: format
+
+retailers:
+  - name: Costco wine
+    topic_type: retailer
+  - name: Kirkland wine
+    topic_type: retailer
+  - name: Trader Joe's wine
+    topic_type: retailer
+  - name: Aldi wine
+    topic_type: retailer
+  - name: Total Wine
+    topic_type: retailer
+  - name: Wine.com
+    topic_type: retailer
+  - name: grocery store wine
+    topic_type: retailer
+  - name: Whole Foods wine
+    topic_type: retailer
+
+brands:
+  - name: Josh wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Barefoot wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Yellow Tail wine
+    topic_type: brand
+    brand_tier: direct
+  - name: 19 Crimes wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Apothic wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Meiomi wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Cupcake wine
+    topic_type: brand
+    brand_tier: direct
+  - name: La Crema wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Kendall-Jackson wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Bota Box wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Black Box wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Franzia wine
+    topic_type: brand
+    brand_tier: direct
+  - name: Kirkland Signature wine
+    topic_type: brand
+    brand_tier: direct
+  # High-price / adjacent watch — do NOT recommend as direct episode targets
+  # These indicate demand for a style or region that The Wine Pair can address affordably
+  - name: Caymus
+    topic_type: brand
+    brand_tier: adjacent
+    adjacent_angle: "Big Napa-style Cabernet without Napa prices"
+  - name: Rombauer
+    topic_type: brand
+    brand_tier: adjacent
+    adjacent_angle: "Rich, buttery Chardonnay at a non-Rombauer price"
+  - name: Silver Oak
+    topic_type: brand
+    brand_tier: adjacent
+    adjacent_angle: "Alexander Valley Cab alternatives"
+  - name: Duckhorn
+    topic_type: brand
+    brand_tier: adjacent
+    adjacent_angle: "Merlot is back — but you don't need to spend Duckhorn money"
+  - name: The Prisoner
+    topic_type: brand
+    brand_tier: adjacent
+    adjacent_angle: "Red blends worth buying vs. paying for the label"
+  - name: Orin Swift
+    topic_type: brand
+    brand_tier: adjacent
+    adjacent_angle: "Bold California reds — the affordable alternatives"
+  - name: Veuve Clicquot
+    topic_type: brand
+    brand_tier: watch_only
+  - name: Whispering Angel
+    topic_type: brand
+    brand_tier: watch_only
+
+varietals:
+  - name: Cabernet Sauvignon
+    topic_type: varietal
+  - name: Chardonnay
+    topic_type: varietal
+  - name: Pinot Noir
+    topic_type: varietal
+  - name: Sauvignon Blanc
+    topic_type: varietal
+  - name: Riesling
+    topic_type: varietal
+  - name: Malbec
+    topic_type: varietal
+  - name: Merlot
+    topic_type: varietal
+  - name: Cabernet Franc
+    topic_type: varietal
+  - name: Albariño
+    topic_type: varietal
+  - name: Grüner Veltliner
+    topic_type: varietal
+  - name: Chenin Blanc
+    topic_type: varietal
+  - name: Gamay
+    topic_type: varietal
+  - name: Sangiovese
+    topic_type: varietal
+  - name: Tempranillo
+    topic_type: varietal
+  - name: Grenache
+    topic_type: varietal
+  - name: Syrah/Shiraz
+    topic_type: varietal
+  - name: Rosé
+    topic_type: varietal
+  - name: Prosecco
+    topic_type: varietal
+  - name: Cava
+    topic_type: varietal
+  - name: Champagne alternatives
+    topic_type: varietal
+
+regions:
+  - name: Rioja
+    topic_type: region
+  - name: Sicily
+    topic_type: region
+  - name: Loire
+    topic_type: region
+  - name: Provence
+    topic_type: region
+  - name: Willamette Valley
+    topic_type: region
+  - name: Portugal
+    topic_type: region
+  - name: Chile
+    topic_type: region
+  - name: Argentina
+    topic_type: region
+  - name: South Africa
+    topic_type: region
+  - name: Greece
+    topic_type: region
+  - name: Slovenia
+    topic_type: region
+  - name: Austria
+    topic_type: region
+  - name: Spain
+    topic_type: region
+  - name: Italy
+    topic_type: region
+  - name: Washington wine
+    topic_type: region
+  - name: Oregon wine
+    topic_type: region
+  - name: California wine
+    topic_type: region
+
+questions:
+  - name: best wine under $20
+    topic_type: question
+  - name: best cheap wine
+    topic_type: question
+  - name: best affordable wine
+    topic_type: question
+  - name: what wine should I bring to dinner
+    topic_type: question
+  - name: wine for beginners
+    topic_type: question
+  - name: what is dry wine
+    topic_type: question
+  - name: why does wine taste bitter
+    topic_type: question
+  - name: what wine goes with pizza
+    topic_type: question
+  - name: what wine goes with tacos
+    topic_type: question
+  - name: is boxed wine good
+    topic_type: question
+  - name: is orange wine sweet
+    topic_type: question
+  - name: should red wine be chilled
+    topic_type: question
+  - name: is expensive wine better
+    topic_type: question
+  - name: what is natural wine
+    topic_type: question
+  - name: what is the best wine at Costco
+    topic_type: question
+  - name: is Trader Joe's wine good
+    topic_type: question

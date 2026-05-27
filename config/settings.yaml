@@ -1,0 +1,42 @@
+# Wine Pair Content Intelligence — General Settings
+
+report:
+  title: "Wine Pair Content Intelligence Report"
+  formats: [markdown, html]
+  output_dir: reports
+
+scoring:
+  # Minimum demand score to include in recommendations
+  min_demand_score: 0.3
+  # Minimum Wine Pair fit score to recommend as episode or blog
+  min_fit_score: 0.4
+  # Weeks of history required before showing trend direction
+  trend_min_weeks: 3
+
+database:
+  path: "data/sqlite/intelligence.db"
+
+# How many recommendations to generate per category
+recommendations:
+  episode_ideas: 3
+  blog_ideas: 3
+  refreshes: 3
+  social_hooks: 5
+  monitor: 2
+  ignore: 1
+
+# Brand-tier thresholds for adjacent opportunity detection
+brand_tiers:
+  price_thresholds:
+    direct_max_usd: 25
+    adjacent_min_usd: 30
+
+# Show identity — used to score Wine Pair fit
+show:
+  name: "The Wine Pair Podcast"
+  hosts: [Joe Mele, Carmela Mele]
+  anti_snob: true
+  price_focus: affordable
+  audience: everyday_wine_drinkers
+  style: fun_accessible_irreverent
+  is_blind_tasting: false

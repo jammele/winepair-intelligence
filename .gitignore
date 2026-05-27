@@ -1,0 +1,35 @@
+# Credentials and secrets
+.env
+config/service_account.json
+config/client_secret.json
+config/token.json
+*.json
+!config/sources.yaml
+!config/watchlist.yaml
+!config/settings.yaml
+
+# Raw data (potentially large, sourced from APIs)
+data/raw/
+data/normalized/
+
+# SQLite database — committed to track historical trends
+# data/sqlite/ is intentionally NOT ignored
+
+# Logs
+logs/*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
