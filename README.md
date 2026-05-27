@@ -110,6 +110,17 @@ setup_check.py        — setup verifier
 
 ---
 
+## Documentation
+
+| File | Purpose |
+|---|---|
+| `docs/work-log.md` | **Start here.** Current status, immediate next actions, session history. |
+| `docs/roadmap.md` | Phase-by-phase plan with acceptance criteria and data source status. |
+| `docs/decisions.md` | Locked architectural decisions and the reasoning behind each one. |
+| `SETUP.md` | Step-by-step credential setup guide (non-technical). |
+| `SECURITY.md` | What credentials are used, how to rotate or revoke them. |
+| `TROUBLESHOOTING.md` | Common errors and fixes. |
+
 ## Credentials and security
 
 See `SECURITY.md`. The short version: service account keys and API keys go in `config/` and `.env` — both are gitignored. GitHub Actions reads them from repository secrets.
